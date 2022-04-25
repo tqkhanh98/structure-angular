@@ -1,0 +1,101 @@
+.custom-snack-bar-success {
+    background-color: #4fb700;
+    color: #fff
+}
+
+.custom-snack-bar-error {
+    background-color: #d30f0f;
+    color: #fff
+}
+
+// *********color mat-btn*********
+
+.mat-flat-button.mat-accent,
+.mat-stroked-button.mat-accent,
+.mat-raised-button.mat-accent {
+    background-color: #00b90a !important;
+}
+
+.mat-raised-button.mat-blue,
+.mat-flat-button.mat-blue,
+.mat-stroked-button.mat-blue {
+    background-color: #1c01f6;
+}
+
+.mat-flat-button.mat-primary {
+    background-color: #182236;
+}
+
+.mat-flat-button.mat-warning {
+    background-color: #eadc03;
+}
+
+// *********hover mat-btn*********
+
+
+.mat-flat-button.mat-accent:hover {
+    background-color: #04820a !important;
+}
+
+.mat-raised-button.mat-warning:hover,
+.mat-flat-button.mat-warning:hover,
+.mat-stroked-button.mat-warning:hover {
+    background-color: #ccbf0f !important;
+}
+
+.mat-raised-button.mat-warn:hover,
+.mat-flat-button.mat-warn:hover,
+.mat-stroked-button.mat-warn:hover {
+    background-color: #c2362c !important;
+}
+
+.mat-raised-button.mat-blue:hover,
+.mat-flat-button.mat-blue:hover,
+.mat-stroked-button.mat-blue:hover {
+    background-color: #140399 !important;
+}
+
+.mat-raised-button.mat-primary:hover,
+.mat-flat-button.mat-primary:hover,
+.mat-stroked-button.mat-primary:hover {
+    background-color: #040508 !important;
+}
+
+// *********disabled mat-btn*********
+
+.mat-raised-button.mat-accent:disabled,
+.mat-flat-button.mat-accent:disabled,
+.mat-stroked-button.mat-accent:disabled {
+    background-color: #00b90a !important;
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.mat-raised-button.mat-warning:disabled,
+.mat-flat-button.mat-warning:disabled,
+.mat-stroked-button.mat-warning:disabled {
+    background-color: #eadc03 !important;
+    opacity: 1;
+}
+
+.mat-raised-button.mat-warn:disabled,
+.mat-flat-button.mat-warn:disabled,
+.mat-stroked-button.mat-warn:disabled {
+    background-color: #f44336 !important;
+    color: #ffffff;
+}
+
+.mat-raised-button.mat-blue:disabled,
+.mat-flat-button.mat-blue:disabled,
+.mat-stroked-button.mat-blue:disabled {
+    background-color: #1c01f6;
+    color: #ffffff;
+    cursor: not-allowed !important;
+}
+
+.mat-raised-button.mat-primary:disabled,
+.mat-flat-button.mat-primary:disabled,
+.mat-stroked-button.mat-primary:disabled {
+    background-color: #182236;
+    color: #ffffff;
+}

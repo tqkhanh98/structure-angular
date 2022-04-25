@@ -1,0 +1,30 @@
+.tab {
+    padding: 20px 0 0;
+}
+
+.mat-tab-label {
+    background-color: #edf4f9;
+    color: rgb(82, 77, 77);
+    opacity: .5 !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: .7s;
+
+    &:hover {
+        opacity: 1 !important;
+    }
+
+    &:last-child {
+        opacity: 1 !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.mat-tab-label-active {
+    opacity: 1 !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: .7s;
+}

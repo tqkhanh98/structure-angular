@@ -1,0 +1,57 @@
+<div class="wrap-user">
+    <div class="head"> User information</div>
+    <div class="user row">
+        <div class="wrap-img col-3">
+            <img class="img " width="130" height="130" [src]="user?.picture">
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <div class="info">{{user?.title}} {{user?.firstName}} {{user?.lastName}}</div>
+                    <div class="info">
+                        <label>Gender:</label>
+                        <div class="value">{{user?.gender}}</div>
+                    </div>
+                    <div class="info">
+                        <label>Date of Birth:</label>
+                        <div class="value">{{user?.dateOfBirth}}</div>
+                    </div>
+                    <br>
+                    <div class="info">
+                        <label>Email:</label>
+                        <div class="value">{{user?.email}}</div>
+                    </div>
+                    <div class="info">
+                        <label>Phone:</label>
+                        <div class="value">{{user?.phone}}</div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <label>Address</label>
+                    <div class="info">
+                        <label>State:</label>
+                        <div class="value">{{user?.location?.state}}</div>
+                    </div>
+                    <div class="info">
+                        <label>Street:</label>
+                        <div class="value">{{user?.location?.street}}</div>
+                    </div>
+                    <div class="info">
+                        <label>City:</label>
+                        <div class="value">{{user?.location?.city}}</div>
+                    </div>
+                    <div class="info">
+                        <label>Country:</label>
+                        <div class="value">{{user?.location?.country}}</div>
+                    </div>
+                    <div class="info">
+                        <label>Timezone:</label>
+                        <div class="value">{{user?.location?.timezone}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

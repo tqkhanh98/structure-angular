@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+        <div (click)="closeDialog(false)" mat-dialog-close class="close">
+            <mat-icon aria-hidden="false">highlight_off</mat-icon>
+            <div class="text">Close</div>
+        </div>
+    </div>
+</div>
+<div class="title-module"><label class="">New User</label></div>
+<form [formGroup]="userForm">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <label>{{'Email'}}</label>
+            <input formControlName="email" [readonly]="!!idUser" type="text" id="email" placeholder="{{'Email'}}"
+                class="form-control form-control-line" [ngClass]="{'is-invalid': checkForm['email']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['email'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>First name</label>
+            <input formControlName="firstName" type="text" id="firstName" placeholder="{{'First name'}}"
+                class="form-control" [ngClass]="{'is-invalid': checkForm['firstName']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['firstName'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>Last name</label>
+            <input formControlName="lastName" type="text" id="name" placeholder="{{'Last name'}}" class="form-control"
+                [ngClass]="{'is-invalid': checkForm['lastName']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['lastName'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+    </div>
+    <hr class="dotted">
+</form>
+<div class="d-flex justify-content-end btn-group">
+    <button (click)="closeDialog(false)" class="mr-2" mat-stroked-button>Cancel</button>
+    <button mat-flat-button color="accent" [disabled]="!userForm.valid" (click)="confirm()">Save</button>
+</div>

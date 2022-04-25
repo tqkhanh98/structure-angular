@@ -1,0 +1,30 @@
+<div class="head">
+    <span>List user</span>
+    <button mat-raised-button (click)="openUserForm()">Add</button>
+</div>
+<div class="outter container-fluid">
+    <div class="list row">
+        <div class="user col-6" *ngFor="let user of users">
+            <div class="wrap-info">
+                <div class="edit" (click)="openUserForm(user.id)">
+                    <mat-icon>edit</mat-icon>
+                </div>
+                <img class="img" width="100" height="100" [src]="user?.picture" (click)="onRedirectDetail(user.id)">
+                <div class="info">
+                    <span class="name">
+                        {{user?.title}} {{user?.firstName}} {{user?.lastName}}
+                    </span>
+                    <span class="btn-post" (click)="onRedirectPosts(user.id)">
+                        <button mat-raised-button color="primary">
+                            Posts
+                            <mat-icon>arrow_right_alt</mat-icon>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 btn-see-more" *ngIf="visibleSeeMore">
+            <button mat-raised-button (click)="seeMore()">See more <mat-icon>arrow_drop_down</mat-icon></button>
+        </div>
+    </div>
+</div>

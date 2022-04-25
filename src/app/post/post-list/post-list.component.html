@@ -1,0 +1,37 @@
+<div class="head"> List user posts</div>
+<div class="wrapper container-fluid">
+    <div class="row">
+        <div class="col-6 wrap-card" *ngFor="let post of posts">
+            <mat-card class="card-info">
+                <mat-card-header>
+                    <div class="avatar" mat-card-avatar><img [src]="post?.owner?.picture" width="50" height="50">
+                    </div>
+                    <mat-card-title (click)="onRedirectUserDetail(post.owner.id)">{{post?.owner?.title}}
+                        {{post?.owner?.firstName}}
+                        {{post?.owner?.lastName}}</mat-card-title>
+                    <mat-card-subtitle>{{post?.publishDate | date:'dd/MM/yyyy hh:mm'}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="wrap-content row">
+                        <div class="col-5"><img [src]="post?.image" width="230" height="230" alt=""></div>
+                        <div class="col-7 info">
+                            <div class="item">{{post?.text}}</div>
+                            <mat-chip-list class="item">
+                                <mat-chip *ngFor="let tag of post?.tags" (click)="onRedirectPostByTag(tag)">{{tag}}
+                                </mat-chip>
+                            </mat-chip-list>
+                            <div class="item">
+                                <mat-icon>thumb_up_alt</mat-icon> <span class="likes">{{post?.likes}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+        <div class="col-12 btn-see-more" *ngIf="visibleSeeMore">
+            <button mat-raised-button (click)="seeMore()">See more <mat-icon>arrow_drop_down</mat-icon></button>
+        </div>
+    </div>
+</div>
