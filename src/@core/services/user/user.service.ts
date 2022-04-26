@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HTTP, PaginationResponse, requestQuery } from 'src/@core/constant';
 import { Post, User } from 'src/@core/models';
-import { PostRequest } from '../post/post.DTO';
+import { PostPaginationRequest } from '../post/post.DTO';
 import { UserRequest, UserRequestPagination } from './user.DTO';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class UserService {
     return this._https.get<User>(`${this.endpoint}/${id}`);
   }
 
-  getPostsBy(id: string, requestBody: PostRequest): Observable<PaginationResponse<Post>> {
+  getPostsBy(id: string, requestBody: PostPaginationRequest): Observable<PaginationResponse<Post>> {
     return this._https.get<PaginationResponse<Post>>(`${this.endpoint}/${id}/post?${requestQuery(requestBody)}`)
   }
 

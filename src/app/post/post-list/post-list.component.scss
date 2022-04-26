@@ -8,6 +8,17 @@ $bg-color:#edf4f9;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        width: 160px;
+        height: 40px;
+        background-color: rgb(228, 214, 26);
+        color: #000000;
+        border-bottom-right-radius: 12px;
+    }
 }
 
 .wrap-card {

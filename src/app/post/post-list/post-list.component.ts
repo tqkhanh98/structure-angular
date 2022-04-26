@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post, UserService } from 'src/@core';
-import { PostRequest, PostService } from 'src/@core/services/post';
+import { PostPaginationRequest, PostService } from 'src/@core/services/post';
+import { PostFormComponent } from '../post-form/post-form.component';
 
 @Component({
   selector: 'app-post-list',
@@ -9,15 +11,17 @@ import { PostRequest, PostService } from 'src/@core/services/post';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
+  randomImg = 'https://picsum.photos/200/300';
   posts: Post[] = [];
-  postRequest: PostRequest = new PostRequest();
+  postRequest: PostPaginationRequest = new PostPaginationRequest();
   visibleSeeMore: boolean = true;
   totalPost: number = 0;
   constructor(
     private _postService: PostService,
     private _userService: UserService,
     private _router: Router,
-    private _route: ActivatedRoute) { }
+    private _route: ActivatedRoute,
+    private _dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.listenRoute();
@@ -64,6 +68,17 @@ export class PostListComponent implements OnInit {
     this.postRequest.limit += 20;
     this.getList();
     (this.postRequest.limit >= this.totalPost) && (this.visibleSeeMore = false);
+  }
+
+  openPostForm(postId?: string) {
+    const dialog = this._dialog.open(PostFormComponent, {
+      width: '1080px',
+      height: '400px',
+      data: postId
+    });
+    dialog.afterClosed().subscribe(isSave => {
+      isSave && this.getList();
+    })
   }
 
 }

@@ -1,0 +1,55 @@
+<div class="title-module">
+    <label class="">New Post</label>
+    <div (click)="closeDialog(false)" mat-dialog-close class="close">
+        <mat-icon aria-hidden="false">highlight_off</mat-icon>
+    </div>
+</div>
+<form [formGroup]="postForm">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <label>Owner</label>
+            <ng-select class="bo-custom-select" (scrollToEnd)="seeMore()" [clearable]="false"
+                [ngClass]="{'is-invalid': checkForm['owner']}" formControlName="owner">
+                <ng-option *ngFor="let user of users" [value]="user?.id">{{user?.firstName }} {{user?.lastName}}
+                </ng-option>
+            </ng-select>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>Publish date</label>
+            <input formControlName="publishDate" readonly type="text" id="publishDate" placeholder="Publish date"
+                class="form-control" [ngClass]="{'is-invalid': checkForm['publishDate']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['publishDate'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>Tag</label>
+            <ng-select class="bo-custom-select" [multiple]="true" [clearable]="false"
+                [ngClass]="{'is-invalid': checkForm['tags']}" formControlName="tags">
+                <ng-option *ngFor="let tag of tags" [value]="tag">{{tag}}
+                </ng-option>
+            </ng-select>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>Description</label>
+            <input formControlName="text" type="text" id="name" placeholder="Description" class="form-control"
+                [ngClass]="{'is-invalid': checkForm['text']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['text'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <label>Like</label>
+            <input formControlName="likes" type="text" id="like" readonly class="form-control"
+                [ngClass]="{'is-invalid': checkForm['likes']}">
+            <div class="text-danger mt-1" [style.visibility]="checkForm['likes'] ? '' : 'hidden'">
+                This field is required
+            </div>
+        </div>
+    </div>
+    <hr class="dotted">
+</form>
+<div class="d-flex justify-content-end btn-group">
+    <button (click)="closeDialog(false)" class="mr-2" mat-stroked-button>Cancel</button>
+    <button mat-flat-button color="accent" [disabled]="!postForm.valid" (click)="confirm()">Save</button>
+</div>
