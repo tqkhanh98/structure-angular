@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post, UserService } from 'src/@core';
 import { PostPaginationRequest, PostService } from 'src/@core/services/post';
+import { NotificationController } from 'src/@shared';
 import { PostFormComponent } from '../post-form/post-form.component';
 
 @Component({
@@ -21,7 +22,8 @@ export class PostListComponent implements OnInit {
     private _userService: UserService,
     private _router: Router,
     private _route: ActivatedRoute,
-    private _dialog: MatDialog) { }
+    private _dialog: MatDialog,
+    private _toast: NotificationController) { }
 
   ngOnInit(): void {
     this.listenRoute();
@@ -79,6 +81,10 @@ export class PostListComponent implements OnInit {
     dialog.afterClosed().subscribe(isSave => {
       isSave && this.getList();
     })
+  }
+
+  deletePost(id: string) {
+    return this._postService.delete(id).subscribe(_ => this._toast.openSuccess('Delete successfully!').then(_ => this.getList()));
   }
 
 }

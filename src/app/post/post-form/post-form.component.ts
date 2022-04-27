@@ -63,7 +63,6 @@ export class PostFormComponent implements OnInit {
   }
 
   getListUser() {
-    this.userRequest.limit += 7;
     return this._userService.getAll(this.userRequest);
   }
 
@@ -99,8 +98,8 @@ export class PostFormComponent implements OnInit {
   }
 
   seeMore() {
-    console.log('adasdas')
     this.userRequest.limit += 5;
+    console.log(this.userRequest.limit)
     this.getListUser().subscribe(response => this.handleUserRequest(response?.data));
   }
 

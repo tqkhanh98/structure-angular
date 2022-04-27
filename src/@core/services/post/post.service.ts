@@ -28,4 +28,8 @@ export class PostService {
         return this._http.put<Post>(HTTP + this.endpoint + '/' + id, requestBody);
     }
 
+    delete(id: string) {
+        return this._http.delete(HTTP + this.endpoint + `/` + id)
+    }
+
 }

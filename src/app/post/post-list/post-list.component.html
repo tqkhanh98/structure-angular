@@ -6,9 +6,13 @@
     <div class="row">
         <div class="col-6 wrap-card" *ngFor="let post of posts">
             <mat-card class="card-info">
+                <div (click)="deletePost(post.id)" mat-dialog-close class="close">
+                    <mat-icon aria-hidden="false">highlight_off</mat-icon>
+                </div>
                 <mat-card-header>
                     <div class="avatar" mat-card-avatar><img [src]="post?.owner?.picture" width="50" height="50">
                     </div>
+
                     <mat-card-title (click)="onRedirectUserDetail(post.owner.id)">{{post?.owner?.title}}
                         {{post?.owner?.firstName}}
                         {{post?.owner?.lastName}}</mat-card-title>

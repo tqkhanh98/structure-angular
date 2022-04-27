@@ -26,6 +26,14 @@ $bg-color:#edf4f9;
 }
 
 .card-info {
+    position: relative;
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
     mat-card-title {
         cursor: pointer;
 

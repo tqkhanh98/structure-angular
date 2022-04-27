@@ -19,7 +19,8 @@ export class HeaderInterceptor implements HttpInterceptor {
                 this._store.dispatch(new RemoveSpinner);
             }),
             catchError((err: HttpErrorResponse) => {
-                this._toast.openError(err?.error?.error);
+                err?.error && this._toast.openError(err?.error?.error);
+                !err?.error && this._toast.openError('Request fail!');
                 return throwError(err);
             })
         );
