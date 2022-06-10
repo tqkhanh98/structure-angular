@@ -15,9 +15,11 @@ import { HeaderInterceptor } from 'src/@core';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import { SharedModule } from 'src/@shared/shared.module';
+import { TestingComponent } from './testing/testing.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestingComponent
   ],
   imports: [
     CommonModule,

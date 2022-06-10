@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReplaySubject } from 'rxjs';
 import { AuthenticationService } from 'src/@core';
 
 @Component({
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.onRedirect();
+
   }
 
   onRedirect() {

@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
   }
 
   onRedirectDetail(id: string) {
-    this._router.navigate(['/user/detail', id]);
+    this._router.navigate(['/user/detail', id], { queryParams: { someParam: 'param nè' } });
   }
 
   onRedirectPosts(id: string) {
