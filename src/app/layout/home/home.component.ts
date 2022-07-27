@@ -5,6 +5,7 @@ import { AuthenticationService } from 'src/@core';
 enum IndexTab {
   POSTS = 0,
   USER = 1,
+  TESTING = 2,
   LOGOUT = 99,
 }
 const LogoutName = 'Logout'
@@ -25,6 +26,10 @@ export class HomeComponent implements OnInit {
       index: IndexTab.USER
     },
     {
+      name: 'Testing',
+      index: IndexTab.TESTING
+    },
+    {
       name: LogoutName,
       index: IndexTab.LOGOUT
     },
@@ -41,6 +46,7 @@ export class HomeComponent implements OnInit {
     let url = window.location.href;
     if (url.includes('user')) return this.onTabChange(IndexTab.USER, true);
     else if (url.includes('post')) return this.onTabChange(IndexTab.POSTS, true);
+    else if (url.includes('testing')) return this.onTabChange(IndexTab.TESTING, true);
   }
 
   onTabChange(event: any, init?: boolean) {
@@ -50,6 +56,8 @@ export class HomeComponent implements OnInit {
         return this.navigateTo('user/list');
       case IndexTab.POSTS:
         return this.navigateTo('post/list');
+      case IndexTab.TESTING:
+        return this.navigateTo('testing');
     }
     if (event?.tab?.textLabel === LogoutName) return this._authService.onLogout();
   }

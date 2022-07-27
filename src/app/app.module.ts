@@ -15,11 +15,11 @@ import { HeaderInterceptor } from 'src/@core';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import { SharedModule } from 'src/@shared/shared.module';
-import { TestingComponent } from './testing/testing.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    TestingComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +39,6 @@ import { TestingComponent } from './testing/testing.component';
     ActiveAuthenticationGuard,
     NotificationController,
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

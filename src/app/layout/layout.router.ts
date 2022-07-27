@@ -20,6 +20,10 @@ const routes: Routes = [
         path: 'post',
         loadChildren: () => import('../post/post.module').then(m => m.PostModule)
       },
+      {
+        path: 'testing',
+        loadChildren: () => import('../testing/testing.module').then(m => m.TestingModule)
+      },
     ]
   },
 

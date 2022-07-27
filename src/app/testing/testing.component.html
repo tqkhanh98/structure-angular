@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <form [formGroup]="form" class="row">
+        <div class="col-6">
+            <label>Brand</label>
+            <ng-select class="bo-custom-select" formControlName="brand" [clearable]="false">
+                <ng-option *ngFor="let brand of brands" [value]="brand.value">{{brand.name}}
+                </ng-option>
+            </ng-select>
+        </div>
+        <div class="col-6">
+            <label>Color</label>
+            <ng-select class="bo-custom-select" formControlName="color" [clearable]="false">
+                <ng-option *ngFor="let color of colors" [value]="color.value">{{color.name}}
+                </ng-option>
+            </ng-select>
+        </div>
+
+        <div class="col-12 mt-3">
+            <div class="text-center">Cost: <b>{{totalCost}}</b></div>
+        </div>
+    </form>
+
+</div>
