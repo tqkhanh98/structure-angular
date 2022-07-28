@@ -3,7 +3,6 @@ import { of } from 'rxjs';
 import { AuthenticationService } from 'src/@core';
 
 import { TestingComponent } from './testing.component';
-import { TestingService } from './testing.service';
 
 describe('TestingComponent', () => {
   let component: TestingComponent;
@@ -31,19 +30,3 @@ describe('TestingComponent', () => {
 
 
 });
-
-fdescribe('testiing f', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [TestingComponent],
-      providers: [{ provide: TestingService }]
-    }).compileComponents();
-  })
-  it('xoá space', () => {
-    let service: TestingService = TestBed.get(TestingService);
-    const text = 'testing works!';
-    const excepted = 'testingworks!';
-    const actual = service.removeSpace(text);
-    expect(actual).toEqual(excepted);
-  })
-})
